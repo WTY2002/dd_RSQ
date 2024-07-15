@@ -24,7 +24,7 @@ extern "C" {
 	 * @param char* fileString_x 读取数据集x的地址
 	 * @param char* fileString_y 读取数据集y的地址
 	 */
-	void dealData(char* fileString_x, char* fileString_y);
+	EXPORT_SYMBOL void dealData(char* fileString_x, char* fileString_y);
 
 	/**
 	 * @Method: 发起反向相似性查询
@@ -32,7 +32,7 @@ extern "C" {
 	 * @param resultFilePath 输出数据的地址
 	 * @return 状态码，1：成功；0：失败
 	 */
-	int reverseSQ(char* fileString, char* resultFilePath);
+	EXPORT_SYMBOL int reverseSQ(char* fileString, char* resultFilePath);
 
 
 #ifdef __cplusplus

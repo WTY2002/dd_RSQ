@@ -122,7 +122,7 @@ int BN_to_int(BIGNUM* bn) {
  * @param char* fileString_x 读取数据集x的地址
  * @param char* fileString_y 读取数据集y的地址
  */
-void dealData(char* fileString_x, char* fileString_y) {
+EXPORT_SYMBOL void dealData(char* fileString_x, char* fileString_y) {
     // 读取未经处理的数据集x和y
     int lineNumber = 1;
     vector<BIGNUM*> data = readBIGNUMsFromFile(fileString_x, lineNumber);
@@ -217,7 +217,7 @@ void dealData(char* fileString_x, char* fileString_y) {
  * @param resultFilePath 输出数据的地址
  * @return 状态码，1：成功；0：失败
  */
-int reverseSQ(char* fileString, char* resultFilePath) {
+EXPORT_SYMBOL int reverseSQ(char* fileString, char* resultFilePath) {
     // 读取两行数据，第一行含有一个数据k；第二行为数据集y中的一个数据，空格分隔
     vector<vector<BIGNUM*>> data_list(2);
     data_list[0] = readBIGNUMsFromFile(fileString, 1);
