@@ -15,7 +15,7 @@ using namespace std;
 void printTime(clock_t start_time,char * desc){
     clock_t end_time = clock();
     double execution_time = ((double) (end_time - start_time)) / CLOCKS_PER_SEC * 1000;
-    printf("%s的时间是：%f 毫秒\n",desc, execution_time);
+    printf("%s cost time：%f ms\n",desc, execution_time);
     fflush(stdout);
 }
 
@@ -46,13 +46,12 @@ int main()
     char* algoName = "inner_product";
     char* fileString = "/root/wty/data.txt";
     char* fileString2 = "/root/wty/data2.txt";
-    char* query = "/root/wty/query.txt";
+    char* query = "/root/wty/query2.txt";
     char* resultFilePath = "/root/wty/result.txt";
 
     // deal(algoName, fileString, resultFilePath);
     dealData(fileString, fileString2);
     reverseSQ(query, resultFilePath);
-
 
     return 0;
 }

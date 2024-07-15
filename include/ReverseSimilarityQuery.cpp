@@ -13,6 +13,12 @@
 #include <fstream>
 #include <queue>
 #include <openssl/bn.h>
+
+#ifdef _WIN32
+#define EXPORT_SYMBOL __declspec(dllexport)
+#else
+#define EXPORT_SYMBOL __attribute__((visibility("default")))
+#endif
 using namespace std;
 
 BN_CTX* CTXX = BN_CTX_new();
@@ -27,7 +33,6 @@ vector<vector<BIGNUM*>> Data_y;
 
 // 定义最大堆的大小
 int k_max;
-
 
 // 定义堆中数据元素的结构体
 struct HeapNode {
@@ -204,9 +209,6 @@ void dealData(char* fileString_x, char* fileString_y) {
 
         heap_x[i] = tempHeap;
     }
-
-    BIGNUM* distance = BN_CTX_get(CTXX);
-    BIGNUM* temp = BN_CTX_get(CTXX);
 }
 
 /**
@@ -268,5 +270,13 @@ int reverseSQ(char* fileString, char* resultFilePath) {
         cerr << "Unable to open file " << resultFilePath << endl;
         return 0;
     }
+
+    // 释放data_list
+     for (int i = 0; i < data_list.size(); i++) {
+         for (int j = 0; j < data_list[i].size(); j++) {
+             BN_free(data_list[i][j]);
+         }
+     }
+
     return 1;
 }
