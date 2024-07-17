@@ -280,3 +280,22 @@ EXPORT_SYMBOL int reverseSQ(char* fileString, char* resultFilePath) {
 
     return 1;
 }
+
+/**
+ * @Method: 释放所用分配的内存
+ */
+EXPORT_SYMBOL void freeRawData() {
+    // 释放rawData_x
+    for (int i = 0; i < rawData_x.size(); i++) {
+        for (int j = 0; j < rawData_x[i].size(); j++) {
+            BN_free(rawData_x[i][j]);
+        }
+    }
+
+    // 释放rawData_y
+    for (int i = 0; i < rawData_y.size(); i++) {
+        for (int j = 0; j < rawData_y[i].size(); j++) {
+            BN_free(rawData_y[i][j]);
+        }
+    }
+}

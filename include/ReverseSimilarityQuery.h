@@ -34,6 +34,11 @@ extern "C" {
 	 */
 	EXPORT_SYMBOL int reverseSQ(char* fileString, char* resultFilePath);
 
+	/**
+	 * @Method: 释放所用分配的内存
+	 */
+	EXPORT_SYMBOL void freeRawData();
+
 
 #ifdef __cplusplus
 }
