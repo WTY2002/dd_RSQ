@@ -51,7 +51,27 @@ int main()
 
     // deal(algoName, fileString, resultFilePath);
     dealData(fileString, fileString2);
+
     reverseSQ(query, resultFilePath);
+    freeRawData();
+
+    cout << "-----------------------------------" << endl;
+
+    dealData(fileString, fileString2);
+
+    reverseSQ(query, resultFilePath);
+    freeRawData();
+
+    cout << "-----------------------------------" << endl;
+
+    dealData(fileString, fileString2);
+
+    reverseSQ(query, resultFilePath);
+    freeRawData();
+
+    cout << "-----------------------------------" << endl;
+
+    freeRawData();
 
     return 0;
 }

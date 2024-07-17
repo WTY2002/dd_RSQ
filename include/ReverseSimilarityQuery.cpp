@@ -193,7 +193,8 @@ EXPORT_SYMBOL void dealData(char* fileString_x, char* fileString_y) {
 
             if (heap.size() < k_max) {
                 heap.push(node);
-            } else if (node < heap.top()) {
+            }
+            else if (node < heap.top()) {
                 heap.pop();
                 heap.push(node);
             }
@@ -209,6 +210,8 @@ EXPORT_SYMBOL void dealData(char* fileString_x, char* fileString_y) {
 
         heap_x[i] = tempHeap;
     }
+    // 释放临时变量
+    BN_free(square);
 }
 
 /**
@@ -291,6 +294,7 @@ EXPORT_SYMBOL void freeRawData() {
             BN_free(rawData_x[i][j]);
         }
     }
+    rawData_x.clear();
 
     // 释放rawData_y
     for (int i = 0; i < rawData_y.size(); i++) {
@@ -298,4 +302,9 @@ EXPORT_SYMBOL void freeRawData() {
             BN_free(rawData_y[i][j]);
         }
     }
+    rawData_y.clear();
+
+    Data_x.clear();
+    Data_y.clear();
+    heap_x.clear();
 }
