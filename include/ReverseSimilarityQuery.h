@@ -16,8 +16,9 @@ using namespace std;
  * @Method: 数据预计算
  * @param char* fileString_x 读取数据集x的地址
  * @param char* fileString_y 读取数据集y的地址
+ * @return 状态码，1：成功；0：失败
  */
-void dealData(char* fileString_x, char* fileString_y);
+int dealData(char* fileString_x, char* fileString_y);
 
 
 
@@ -28,6 +29,12 @@ void dealData(char* fileString_x, char* fileString_y);
  * @return 状态码，1：成功；0：失败
  */
 int reverseSQ(char* fileString, char* resultFilePath);
+
+/**
+ * @Method: 释放所用分配的内存
+ * @return 状态码，1：成功；0：失败
+ */
+int freeRawData();
 
 
 #endif //REVERSESIMILARITYQUERY_H
